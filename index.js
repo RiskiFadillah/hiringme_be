@@ -1,12 +1,11 @@
 require("dotenv").config();
 
-const { urlencoded, json } = require("express");
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const router = require("./src/routes/index");
-
-const {PORT} = process.env.PORT || 5000;
+const { urlencoded, json } = require("body-parser");
+const { PORT } = process.env.PORT || 5000;
 
 //defaultnya express js itu ga menerima semua jenis form.
 // use() middleware urlencoded, json

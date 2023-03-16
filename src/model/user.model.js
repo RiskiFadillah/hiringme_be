@@ -73,10 +73,9 @@ const userModel = {
     fullname,
     email,
     phone,
-    password,
     jobType,
     address,
-    image,
+    file,
     instagram,
     github,
     gitlab,
@@ -92,11 +91,9 @@ const userModel = {
               fullname || result.rows[0].fullname
             }', email ='${email || result.rows[0].email}', phone ='${
               phone || result.rows[0].phone
-            }', password ='${
-              password || result.rows[0].password
-            }', job_type ='${jobType || result.rows[0].jobType}', address ='${
+            }',  job_type ='${jobType || result.rows[0].jobType}', address ='${
               address || result.rows[0].address
-            }',  image ='${image || result.rows[0].image}', instagram ='${
+            }',  image ='${file ? file.path : result.rows[0].image}', instagram ='${
               instagram || result.rows[0].instagram
             }', github ='${github || result.rows[0].github}', gitlab ='${
               gitlab || result.rows[0].gitlab
@@ -109,11 +106,10 @@ const userModel = {
                   id,
                   fullname,
                   email,
-                  phone,
-                  password,
+                  phone,                
                   jobType,
                   address,
-                  image,
+                  image :file,
                   instagram,
                   github,
                   gitlab,
